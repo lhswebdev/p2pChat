@@ -1,33 +1,15 @@
 <script>
-  import { onMount } from 'svelte';
-
-  export let name;
-
-  let counter = 0; // @hmr:keep
-
-  onMount(() => {
-    const interval = setInterval(() => {
-      counter++;
-    }, 1000);
-
-    return () => {
-      clearInterval(interval);
-    };
-  });
+  import {peer} from 'store.js';
+  import Connect from 'Connect.svelte';
+  $: peerid = peer.id
 
 </script>
 
 <main>
-  <h1>Hello {name}!</h1>
-  <p>
-    Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to
-    learn how to build Svelte apps.
-  </p>
-  <p>
-    This page has been open for {counter}s.
-  </p>
+  <h1>Hello {peerid}!</h1>
+  
 </main>
-
+<Connect/>
 <style>
   main {
     text-align: center;
