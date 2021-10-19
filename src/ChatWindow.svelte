@@ -12,18 +12,10 @@
         messages = [...messages, msg]
     }
 </script>
-<!--
-    
-    foreach chat in  allchats
-    <b>{chat.user}</b>
-    <p>{chat.msg}</p>
-endforeach
-    https://svelte.dev/tutorial/each-block-bindings -->
-    {#each messages as peerMessage}
-        <p>{peerMessage}</p>
 
-    {/each}
-    <input type="text" bind:value={msg}>
-    <button on:click={sendMsg(msg)}>Send</button>
-    
-<!-- https://svelte.dev/tutorial/reactive-assignments -->
+{#each messages as peerMessage}
+    <p>{peerMessage}</p>
+
+{/each}
+<input type="text" bind:value={msg}>
+<button on:click={sendMsg(msg)}>Send</button>
