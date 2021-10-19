@@ -1,6 +1,9 @@
 <script>
-    import { peer, conn } from './store.js';
-    $: messages = []
+    import { peer, conn, messages} from './store.js';
+    $: messages_value =[];
+    messages.subscribe(value => {
+        messages_value = value;
+    })
     let msg;
     let conn_value;
     conn.subscribe(value => {
@@ -8,16 +11,18 @@
     })
     peer.on('connection', function(connection) {
         connection.on("data", (msg)=>{
-            messages = [...messages, msg]
+            messages.set([...messages_value, msg])
         })
+        console.log("fdfdfd");
     })
+
     function sendMsg() {
         conn_value.send(msg)
-        messages = [...messages, msg]
+        messages.set([...messages_value, msg])
     }
 </script>
 
-{#each messages as peerMessage}
+{#each messages_value as peerMessage}
     <p>{peerMessage}</p>
 
 {/each}
