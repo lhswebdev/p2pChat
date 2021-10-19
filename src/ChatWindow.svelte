@@ -6,7 +6,11 @@
     conn.subscribe(value => {
         conn_value = value;
     })
-    
+    peer.on('connection', function(connection) {
+        connection.on("data", (msg)=>{
+            messages = [...messages, msg]
+        })
+    })
     function sendMsg() {
         conn_value.send(msg)
         messages = [...messages, msg]

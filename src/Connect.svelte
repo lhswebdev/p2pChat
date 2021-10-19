@@ -4,10 +4,6 @@
     let theotherpeerid="";
     let connected = false;
     peer.on('connection', function(connection) {
-        console.log(connection);
-        connection.on("data", (data)=>{
-            console.log(data);
-        })
         conn.set(connection);
         theotherpeerid = connection.peer;
         connected = true;
