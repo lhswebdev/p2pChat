@@ -1,7 +1,7 @@
 <script>
-  import {peer} from 'store.js';
-  import Connect from 'Connect.svelte';
-  import ChatWindow from 'ChatWindow.svelte'
+  import {peer} from './store.js';
+  import Connect from './Connect.svelte';
+  import ChatWindow from './ChatWindow.svelte'
   $: peerid = peer.id
 
 </script>

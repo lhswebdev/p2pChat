@@ -1,5 +1,5 @@
 <script>
-    import { peer, conn } from 'store.js';
+    import { peer, conn } from './store.js';
     $: messages = []
     let msg;
     let conn_value;

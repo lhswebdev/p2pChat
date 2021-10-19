@@ -1,5 +1,5 @@
 <script>
-    import {peer, conn} from 'store.js'; 
+    import {peer, conn} from './store.js'; 
     
     let theotherpeerid="";
     let connected = false;
