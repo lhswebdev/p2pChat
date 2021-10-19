@@ -1,15 +1,18 @@
 <script>
   import {peer} from 'store.js';
   import Connect from 'Connect.svelte';
+  import ChatWindow from 'ChatWindow.svelte'
   $: peerid = peer.id
 
 </script>
 
 <main>
   <h1>Hello {peerid}!</h1>
-  
+  <Connect/>
+  <ChatWindow/>
 </main>
-<Connect/>
+
+
 <style>
   main {
     text-align: center;
